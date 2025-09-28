@@ -1,0 +1,129 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="row mt-3">
+    
+    <div class="card col-7 show">
+    <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing">
+    <div class="card-body">
+      <p class="card-text">Owned by <i><%= listing.owner.name %></i></p>
+    <h4 class="card-title"><b><%= listing.title %></b></h4>
+    <p class="card-desc"><%= listing.description %></p>
+    <h6 class="card-text"><b>&#8377; <%= listing.price.toLocaleString("en-IN") %> / Night</b></h6>
+    <p class="card-text"><%= listing.location %>, <%= listing.country %></p>
+    
+    <% if(currentUser && currentUser._id.equals(listing.owner._id)) { %>
+    <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark">Edit Listing</a>
+    <form action="/listings/<%= listing._id %>?_method=DELETE" method="post" style="display: inline-block;">
+        <button class="btn btn-danger">Delete listing</button>
+    </form>
+    <% } %>
+    </div>
+    </div>
+    </div>
+    <br>
+    
+    <!-- Reviews Section -->
+    <div class="col-8 offset-3 mb-3 mt-3">
+      <% if(currentUser) {%>
+  <h4 class="mb-3">Leave a Review</h4> 
+  <form action="/listings/<%= listing._id %>/reviews" method="post" novalidate class="needs-validation">
+    <div class="mb-3">
+      <label for="rating" class="form-label">Rating</label>
+    <fieldset class="starability-slot">
+      <input type="radio" id="no-rate" class="input-no-rate" name="rating" id="rating" value="0" checked aria-label="No rating." />
+      <input type="radio" id="first-rate1" name="rating" value="1" />
+      <label for="first-rate1" title="Terrible">1 star</label>
+      <input type="radio" id="first-rate2" name="rating" value="2" />
+      <label for="first-rate2" title="Not good">2 stars</label>
+      <input type="radio" id="first-rate3" name="rating" value="3" />
+      <label for="first-rate3" title="Average">3 stars</label>
+      <input type="radio" id="first-rate4" name="rating" value="4" />
+      <label for="first-rate4" title="Very good">4 stars</label>
+      <input type="radio" id="first-rate5" name="rating" value="5" />
+      <label for="first-rate5" title="Amazing">5 stars</label>
+    </fieldset>
+    </div>
+    <div class="mb-3">
+      <label for="comment" class="form-label">Comments</label>
+      <textarea 
+        name="comment" 
+        id="comment" 
+        rows="5"
+        class="form-control w-75" 
+        placeholder="Write your feedback here..."
+        required
+      ></textarea>
+      <div class="invalid-feedback">
+        Please enter a comment
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-dark">
+      Submit Review
+    </button>
+  </form>
+  <hr>
+  <% } %>
+  
+  <!-- Display Reviews -->
+  <% if(listing.reviews.length > 0) {%>
+    <h3 class="mt-4 mb-4">All Reviews</h3>
+    
+    <!-- Fixed Reviews Grid -->
+    <div class="row g-3">
+      <% for(review of listing.reviews){ %>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= review.author.name %></h5>
+              <p class="starability-result card-subtitle mb-2 text-body-secondary" data-rating="<%= review.rating %>"></p>
+              <p class="card-text"><%= review.comment %></p>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-3">
+              <% if(currentUser && (currentUser._id.equals(review.author._id) || currentUser._id.equals(listing.owner._id))) { %>
+                <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="post">
+                  <button class="btn btn-outline-danger btn-sm">Delete</button>
+                </form>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+</div>
+<br>
+<!-- Map Section -->
+<div class="col-8 offset-2 mb-3 mt-3">
+  <h3>Where you'll be</h3> <br>
+  <div id="map" style="height: 400px;"></div>
+</div>
+
+<script>
+  // Dynamic city/country from your EJS template
+  let query = "<%= listing.location %>";
+  let url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1&language=en&format=json`;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.results && data.results.length > 0) {
+        let lat = data.results[0].latitude;
+        let lon = data.results[0].longitude;
+
+        // Initialize MapmyIndia map with dynamic coords
+        var map = new MapmyIndia.Map("map", {
+          center: [lat, lon],
+          zoom: 12
+        });
+
+        // Add a marker at that position
+        L.marker([lat, lon])
+          .addTo(map)
+          .bindPopup(`${query}<br/>Lat: ${lat}, Lon: ${lon}`);
+      } else {
+        console.error("No results found for:", query);
+      }
+    })
+    .catch(err => console.error("Geocoding error:", err));
+</script>

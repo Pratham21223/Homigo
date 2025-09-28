@@ -1,0 +1,478 @@
+body{
+    font-family: "Plus Jakarta Sans";
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1;
+}
+/* Navbar */
+
+.navbar{
+    height: 5rem;
+    background: #fff;
+}
+.fa-airbnb{
+    color:#fe424d;
+    font-size: 2.5rem;
+}
+.nav-link{
+    color: #222 !important;
+    margin: 0.5rem;
+}
+
+/* footer */
+.f-info-links a{
+    text-decoration: none;
+    color: #222;
+}
+.f-info-links a:hover{
+    text-decoration:underline;
+}
+.f-info-links,.f-info-socials,.f-info-brand{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-info-socials i{
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+}
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* cards */
+.card{
+    /* border: none !important; */
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+}
+.card-img-top{
+    border-radius: 1rem 1rem 0 0 !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+/* .card-body{
+    padding: 0;
+}
+.card-text{
+    font-weight: 400 !important;
+}
+.card-title{
+    font-weight: 700 !important;
+} */
+.listing-link{
+    text-decoration: none;
+}
+
+/* card-effect */
+.card-img-overlay{
+    opacity: 0;
+    /* transition: all 0.1s; */
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+/* Show page */
+.show-img{
+    height: 50vh;
+    width: 100%;
+}
+.show{
+    padding: 0;
+    margin: auto;
+    font-size: 130%;
+}
+
+/* index */
+.index-head{
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* maps */
+#map {
+      width: 90%;
+      height: 500px;
+    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+
+        #filters {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #ddd transparent;
+        }
+
+        /* Custom scrollbar styling */
+        #filters::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        #filters::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #filters::-webkit-scrollbar-thumb {
+            background-color: #ddd;
+            border-radius: 3px;
+        }
+
+        #filters::-webkit-scrollbar-thumb:hover {
+            background-color: #bbb;
+        }
+
+        .filter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 80px;
+            flex-shrink: 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .filter:hover {
+            border-color: #ff385c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .filter.active {
+            border-color: #ff385c;
+            background-color: #fff5f5;
+        }
+
+        .filter.active i {
+            color: #ff385c;
+        }
+
+        .filter div {
+            margin-bottom: 8px;
+        }
+
+        .filter i {
+            font-size: 18px;
+            color: #717171;
+            transition: color 0.3s ease;
+        }
+
+        .filter:hover i {
+            color: #ff385c;
+        }
+
+        .filter p {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 600;
+            color: #222;
+            text-transform: capitalize;
+            line-height: 1.2;
+        }
+
+        /* Tax toggle specific styling */
+        .tax-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 12px 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            min-width: 200px;
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+
+        .tax-toggle .form-check {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        .tax-toggle .form-check-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #222;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tax-toggle .form-check-input {
+            width: 40px;
+            height: 20px;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            background-color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .tax-toggle .form-check-input:focus {
+            box-shadow: 0 0 0 2px rgba(255, 56, 92, 0.2);
+            border-color: #ff385c;
+        }
+
+        .tax-toggle .form-check-input:checked {
+            background-color: #ff385c;
+            border-color: #ff385c;
+        }
+        .form-check-input{
+            margin-right: 0.5rem;
+        }
+        .tax-toggle .form-check-input:checked + .form-check-label {
+            color: #ff385c;
+        }
+
+        /* Filter indicator for active state */
+        .filter::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #ff385c;
+            transition: width 0.3s ease;
+        }
+
+        .filter.active::after {
+            width: 80%;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            #filters {
+                gap: 12px;
+                padding: 15px;
+            }
+            
+            .filter {
+                min-width: 75px;
+                padding: 10px 14px;
+            }
+            
+            .filter i {
+                font-size: 16px;
+            }
+            
+            .filter p {
+                font-size: 11px;
+            }
+
+            .tax-toggle {
+                min-width: 180px;
+                padding: 10px 14px;
+            }
+
+            .tax-toggle .form-check-label {
+                font-size: 11px;
+                margin-right: 8px;
+            }
+
+            .tax-toggle .form-check-input {
+                width: 35px;
+                height: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #filters {
+                gap: 10px;
+                padding: 12px;
+            }
+            
+            .filter {
+                min-width: 70px;
+                padding: 10px 12px;
+            }
+
+            .filter i {
+                font-size: 15px;
+            }
+
+            .filter p {
+                font-size: 10px;
+            }
+
+            .tax-toggle {
+                min-width: 160px;
+                padding: 10px 12px;
+            }
+
+            .tax-toggle .form-check-label {
+                font-size: 10px;
+            }
+        }
+
+        /* Smooth scroll behavior */
+        #filters {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide tax info initially */
+        .tax-info {
+            display: none;
+        }
+        /* Search */
+        .search-btn{
+            background-color: #fe424d;
+            color: white;
+            border-radius: 25px;
+            padding: 0 1rem 0 1rem;
+            
+        }
+        .search-btn:hover{
+            background-color: #fe424d;
+            color: white;
+        }
+        .search-btn i{
+            display: inline;
+            margin-right: 0.5rem;
+        }
+        .search-input{
+            border-radius: 25px;
+            padding: 0.5rem 2.5rem;
+            font-size: 1rem;
+        }
+
+@media (max-width: 767px) {
+            .search {
+                order: 3;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            
+            .search .d-flex {
+                width: 100%;
+            }
+            
+            .search-input {
+                flex: 1;
+            }
+            
+            .navbar-nav.ms-auto:last-child {
+                order: 2;
+                margin-top: 0.5rem;
+            }
+            
+            .navbar-nav:first-child {
+                order: 1;
+            }
+            
+            /* Stack nav items vertically on mobile */
+            .navbar-collapse {
+                padding-top: 1rem;
+            }
+            
+            .nav-link {
+                padding: 0.5rem 0;
+            }
+            
+            /* Better button spacing on mobile */
+            .search-btn {
+                white-space: nowrap;
+            }
+        }
+        
+        /* Tablet adjustments */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .search-input {
+                min-width: 200px;
+            }
+            
+            .search-btn {
+                padding: 0.375rem 0.75rem;
+            }
+        }
+        
+        /* Large screen optimizations */
+        @media (min-width: 992px) {
+            .search-input {
+                min-width: 250px;
+            }
+        }
+        
+        /* Custom toggler styling */
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.25rem rgba(255, 56, 92, 0.25);
+        }
+        
+        /* Smooth collapse animation */
+        .navbar-collapse {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        /* Brand icon styling */
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: #ff385c;
+        }
+        
+        .navbar-brand:hover {
+            color: #e91e63;
+        }
+        
+        /* Search button styling */
+        .search-btn {
+            background-color: #ff385c;
+            border-color: #ff385c;
+            color: white;
+        }
+        
+        .search-btn:hover {
+            background-color: #e91e63;
+            border-color: #e91e63;
+        }
+        
+        /* Nav link hover effects */
+        .nav-link:hover {
+            color: #ff385c !important;
+        }
+        
+        /* Active nav link styling */
+        .nav-link.active {
+            color: #ff385c !important;
+            font-weight: 600;
+        }
+        

@@ -1,0 +1,30 @@
+<%- layout("/layouts/boilerplate") %>
+<body>
+  <!-- <h3 class="index-head">All Listings</h3> -->
+       <%- include("../includes/filters.ejs") %>
+<div class="row row-cols-1 row-cols-sm-3 mt-3">
+    <% for (listing of listings) { %>
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+      <div class="card col" >
+        <img
+          src="<%= listing.image.url %>"
+          class="card-img-top index-img"
+          alt="listing_img"
+          style="height: 20rem"
+        />
+          <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <h5 class="card-title card-text"><%= listing.title %></h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary card-text">
+            &#8377; <%= listing.price.toLocaleString("en-IN")   %>/night
+            <i class="tax-info"> + 18% GST</i>
+          </h6>
+          <p class="card-text">
+            <%= listing.location %>, <%- listing.country %>
+          </p>
+        </div>
+      </div>
+    </a>
+    <% } %>
+  </div>
+</body>
