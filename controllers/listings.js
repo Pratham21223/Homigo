@@ -73,7 +73,7 @@ module.exports.renderEditForm = async (req, res) => {
 
 //Update route
 module.exports.updateListing = async (req,res)=>{
-  let { title, description, image, price, location, country } = req.body;
+  let { title, description, image, price, location, country,category } = req.body;
   let updatedListing ={
     title: title,
     description: description,
