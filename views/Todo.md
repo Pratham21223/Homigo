@@ -1,4 +1,4 @@
-# ✅ To-Do List (With Links)
+# To-Do List 
 
 1. **Solve DSA problems – Arrays**  
    [DSA – Arrays Assignment](https://github.com/kunal-kushwaha/DSA-Bootcamp-Java/blob/main/assignments/05-arrays.md)
